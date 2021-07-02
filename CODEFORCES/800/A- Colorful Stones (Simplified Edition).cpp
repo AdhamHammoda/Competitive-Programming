@@ -3,19 +3,20 @@
 #define ll long long int
 using namespace std;
 /// Implementation
-/// 7-2-2021 , 6:30 PM
+/// 7-2-2021 , 4:14 PM
 void test_case()
 {
-    ll k,r;
-    cin>>k>>r;
-    ll ink=k;
-    ll j=1;
-    while(k%10!=0 && k%10!=r)
+    string a,b;
+    cin>>a>>b;
+    ll j=0;
+    for(int i=0;i<b.size();i++)
     {
-        j++;
-        k=ink*j;
+        if(b[i]==a[j])
+        {
+            j++;
+        }
     }
-    cout<<j;
+    cout<<j+1;
 }
 int main()
 {

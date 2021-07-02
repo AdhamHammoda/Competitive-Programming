@@ -3,19 +3,17 @@
 #define ll long long int
 using namespace std;
 /// Implementation
-/// 7-2-2021 , 6:30 PM
+/// 7-2-2021 , 4:09 PM
 void test_case()
 {
-    ll k,r;
-    cin>>k>>r;
-    ll ink=k;
-    ll j=1;
-    while(k%10!=0 && k%10!=r)
-    {
-        j++;
-        k=ink*j;
-    }
-    cout<<j;
+    ll a,b,c,d;
+    cin>>a>>b>>c>>d;
+    set<ll>s;
+    s.insert(a);
+    s.insert(b);
+    s.insert(c);
+    s.insert(d);
+    cout<<4-s.size();
 }
 int main()
 {

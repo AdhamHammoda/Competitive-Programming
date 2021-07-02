@@ -2,20 +2,14 @@
 #define FIO ios_base::sync_with_stdio(false);
 #define ll long long int
 using namespace std;
-/// Implementation
-/// 7-2-2021 , 6:30 PM
+/// Implementation, maths
+/// 7-2-2021 , 5:15 PM
 void test_case()
 {
-    ll k,r;
-    cin>>k>>r;
-    ll ink=k;
-    ll j=1;
-    while(k%10!=0 && k%10!=r)
-    {
-        j++;
-        k=ink*j;
-    }
-    cout<<j;
+   ll a,b;
+   cin>>a>>b;
+   ll m=6-max(a,b)+1;
+   cout<<m/__gcd(m,6LL)<<"/"<<6/__gcd(m,6LL);
 }
 int main()
 {
