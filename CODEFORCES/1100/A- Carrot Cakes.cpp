@@ -3,7 +3,7 @@
 #define ll long long int
 using namespace std;
 /// Implementation , Equation
-/// 7-3-2021 , 1:30 AM
+/// 7-3-2021 , 1:31 AM
 void test_case()
 {
     double n,t,k,d;
@@ -12,10 +12,8 @@ void test_case()
     ans1=ceil(n/k)*t;
     ll ans2=0;
     ll r=n-(ceil(d/t)*k);
-    cout<<r<<endl;
     if(r>0)ans2= (d/t)*t + (ceil(r/k/2)*t);
     else ans2= 1e9;
-    cout<<ans1<<" "<<ans2<<endl;
     ans1<=ans2?cout<<"NO":cout<<"YES";
 }
 int main()
