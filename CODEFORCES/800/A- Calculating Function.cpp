@@ -3,22 +3,16 @@
 #define ll long long int
 using namespace std;
 /// Implementation , maths
-/// 7-3-2021 , 4:31 AM
+/// 7-3-2021 , 5:28 AM
 void test_case()
 {
-    ll a,b;
-    cin>>a>>b;
-    if(b-a<=1)cout<<-1;
-    else if(b-a==2)
-    {
-        if(a%2 && b%2)cout<<-1<<endl;
-        else cout<<a<<" "<<a+1<<" "<<a+2;
-    }
-    else
-    {
-        a+=a%2;
-        cout<<a<<" "<<a+1<<" "<<a+2;
-    }
+    ll n;
+    cin>>n;
+    ll r=n/2;
+    ll evensum=r*(r+1);
+    r+=n%2;
+    ll oddsum=r*(r+1) - r;
+    cout<<evensum-oddsum;
 }
 int main()
 {

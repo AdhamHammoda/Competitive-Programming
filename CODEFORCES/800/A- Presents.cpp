@@ -2,22 +2,22 @@
 #define FIO ios_base::sync_with_stdio(false);
 #define ll long long int
 using namespace std;
-/// Implementation , maths
-/// 7-3-2021 , 4:31 AM
+/// Implementation , Equation
+/// 7-3-2021 , 2:15 AM
 void test_case()
 {
-    ll a,b;
-    cin>>a>>b;
-    if(b-a<=1)cout<<-1;
-    else if(b-a==2)
+    ll n;
+    cin>>n;
+    ll arr[n];
+    ll mp[n];
+    for(int i=0;i<n;i++)
     {
-        if(a%2 && b%2)cout<<-1<<endl;
-        else cout<<a<<" "<<a+1<<" "<<a+2;
+        cin>>arr[i];
+        mp[arr[i]]=i+1;
     }
-    else
+    for(int i=0;i<n;i++)
     {
-        a+=a%2;
-        cout<<a<<" "<<a+1<<" "<<a+2;
+        cout<<mp[i+1]<<" ";
     }
 }
 int main()
