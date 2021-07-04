@@ -2,8 +2,8 @@
 #define FIO ios_base::sync_with_stdio(false);
 #define ll long long int
 using namespace std;
-/// Implementation, Equation , Geometry
-/// 7-4-2021 , 5:13 am
+/// Equation , Geometry
+/// 7-4-2021 , 5:31 am
 void test_case()
 {
     long double d,h,v,e;
