@@ -3,43 +3,40 @@
 #define ll long long int
 using namespace std;
 /// Implementation
-/// 7-6-2021 , 10:30 pm
+/// 7-15-2021 , 2:50 am
 void test_case()
 {
-   deque<ll>v1;
-   deque<ll>v2;
-   deque<ll>v3;
-   ll n;
-   cin>>n;
-   ll arr[n];
-   for(int i=0;i<n;i++)
-   {
-       cin>>arr[i];
-       if(arr[i]<0)v1.push_back(arr[i]);
-       else if(arr[i]>0)v2.push_back(arr[i]);
-       else v3.push_back(arr[i]);
-   }
-   if(!v2.size())
-   {
-       v2.push_back(v1.back());
-       v1.pop_back();
-       v2.push_back(v1.back());
-       v1.pop_back();
-   }
-   if(v1.size()%2==0)
-   {
-       v3.push_back(v1.front());
-       v1.pop_front();
-   }
-   cout<<v1.size()<<" ";
-   for(auto x:v1)cout<<x<<" ";
-   cout<<endl;
-   cout<<v2.size()<<" ";
-   for(auto x:v2)cout<<x<<" ";
-   cout<<endl;
-   cout<<v3.size()<<" ";
-   for(auto x:v3)cout<<x<<" ";
-   cout<<endl;
+    ll n,k;
+    cin>>n>>k;
+    ll arr[n];
+    vector<pair<ll,ll>>v;
+    for(int i=0;i<n;i++)
+    {
+        cin>>arr[i];
+        v.push_back({arr[i],i});
+    }
+    sort(v.begin(),v.end());
+    set<ll>ans;
+    for(int i=n-1;i>=0;i--)
+    {
+        if(k>=v[i].first)
+        {
+            k-=v[i].first;
+            ans.insert(v[i].second+1);
+            break;
+        }
+    }
+    for(int i=0;i<n;i++)
+    {
+        if(k>=v[i].first)
+        {
+            k-=v[i].first;
+            ans.insert(v[i].second+1);
+        }
+        else break;
+    }
+    cout<<ans.size()<<endl;
+    for(auto x:ans)cout<<x<<" ";
 }
 int main()
 {
