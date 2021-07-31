@@ -1,30 +1,44 @@
-#include <bits/stdc++.h>
-#define FIO ios_base::sync_with_stdio(false);
-#define ll long long int
+#include<bits/stdc++.h>
+#define ll long long
+#define FIO ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 using namespace std;
-/// Implementation
-/// 7-24-2021 , 2:57 pm
 void test_case()
 {
-    ll a,b,c,d;
-    cin>>a>>b>>c>>d;
-    for(int i=0;i<=10000;i++)
+    ll n;
+    cin>>n;
+    ll arr[n];
+    ll sumeven=0,sumodd=0;
+    for(int i=0;i<n;i++)
     {
-        if(a+i*b>=c-d*i)
+        cin>>arr[i];
+        if(i%2==0)sumeven+=arr[i];
+        else sumodd+=arr[i];
+    }
+    ll c=0;
+    for(int i=0;i<n;i++)
+    {
+        if(i%2)
         {
-            cout<<a+i*b<<endl;
-            return;
+            cout<<i<<" "<<arr[i]<<" "<<sumodd-arr[i]<<" "<<sumeven<<endl;
+            if(sumodd-arr[i]==sumeven)
+            {
+                c++;
+            }
         }
-        if(a+(i+1)*b>=c-d*i)
+        else
         {
-            cout<<c-d*i<<endl;
-            return;
+            cout<<i<<" "<<arr[i]<<" "<<sumodd<<" "<<sumeven-arr[i]<<endl;
+            if(sumeven-arr[i]==sumodd)
+            {
+                c++;
+            }
         }
     }
+    cout<<c;
 }
 int main()
 {
-    FIO
+//    FIO
     ll t;
 //    cin>>t;
     t=1;
