@@ -2,43 +2,37 @@
 #define ll long long
 #define FIO ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 using namespace std;
+ll mod=1e9+7;
+ll func(ll x)
+{
+    ll ans=1;
+    for(ll i=1;i<=x;i++)
+    {
+        ans=(ans%mod * i%mod)%mod;
+    }
+    return ans;
+}
 void test_case()
 {
-    ll n;
-    cin>>n;
-    ll arr[n];
-    ll sumeven=0,sumodd=0;
-    for(int i=0;i<n;i++)
-    {
-        cin>>arr[i];
-        if(i%2==0)sumeven+=arr[i];
-        else sumodd+=arr[i];
-    }
-    ll c=0;
-    for(int i=0;i<n;i++)
-    {
-        if(i%2)
-        {
-            cout<<i<<" "<<arr[i]<<" "<<sumodd-arr[i]<<" "<<sumeven<<endl;
-            if(sumodd-arr[i]==sumeven)
-            {
-                c++;
-            }
-        }
-        else
-        {
-            cout<<i<<" "<<arr[i]<<" "<<sumodd<<" "<<sumeven-arr[i]<<endl;
-            if(sumeven-arr[i]==sumodd)
-            {
-                c++;
-            }
-        }
-    }
-    cout<<c;
+    ll h,w,a,b;
+    cin>>h>>w>>a>>b;
+    ll ans=1;
+    ll mod=1e9+7;
+    ll fac1=func(h+w-2);
+    ll fac2=func(h-1);
+    ll fac3=func(w-1);
+    ll fac4=func(a+b-2);
+    ll fac5=func(a-1);
+    ll fac6=func(b-1);
+    ans=(fac2%mod *fac3%mod)%mod;
+    ans=fac1/ans;
+    ll ans2=(fac5%mod * fac6%mod)%mod;
+    ans2=fac4/ans2;
+    cout<<(ans%mod - ans2%mod +mod)%mod;
 }
 int main()
 {
-//    FIO
+    //    FIO
     ll t;
 //    cin>>t;
     t=1;
