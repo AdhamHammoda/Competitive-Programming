@@ -4,11 +4,18 @@
 using namespace std;
 void test_case()
 {
-    ll n,m,x;
-    cin>>n>>m>>x;
-    ll r=((x-1)%n)+1;
-    ll c=ceil((double)x/(double)n);
-    cout<<(r-1)*m+c<<endl;
+    ll a,b;
+    cin>>a>>b;
+    if(a==b)
+    {
+        cout<<0<<endl;
+        return;
+    }
+    if(a<b)
+    {
+        cout<<1+!((b-a)%2)<<endl;
+    }
+    else cout<<1+((a-b)%2)<<endl;
 }
 int main()
 {

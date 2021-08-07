@@ -4,11 +4,10 @@
 using namespace std;
 void test_case()
 {
-    ll n,m,x;
-    cin>>n>>m>>x;
-    ll r=((x-1)%n)+1;
-    ll c=ceil((double)x/(double)n);
-    cout<<(r-1)*m+c<<endl;
+    ll n,x;
+    cin>>n>>x;
+    n=max(0LL,n-2);
+    cout<<2 + n/x - (n%x==0)<<endl;
 }
 int main()
 {

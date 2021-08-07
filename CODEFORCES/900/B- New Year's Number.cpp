@@ -4,18 +4,16 @@
 using namespace std;
 void test_case()
 {
-    ll n,m,x;
-    cin>>n>>m>>x;
-    ll r=((x-1)%n)+1;
-    ll c=ceil((double)x/(double)n);
-    cout<<(r-1)*m+c<<endl;
+    ll n;
+    cin>>n;
+    ll ans=n%2020;
+    if((n-ans)/2020 - ans>=0)cout<<"YES"<<endl;
+    else cout<<"NO"<<endl;
 }
 int main()
 {
     FIO
     ll t;
-    //    freopen("input.in","rt",stdin);
-    //    freopen("output.txt","wt",stdout);
     cin>>t;
 //    t=1;
     while(t--)

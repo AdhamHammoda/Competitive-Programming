@@ -4,11 +4,21 @@
 using namespace std;
 void test_case()
 {
-    ll n,m,x;
-    cin>>n>>m>>x;
-    ll r=((x-1)%n)+1;
-    ll c=ceil((double)x/(double)n);
-    cout<<(r-1)*m+c<<endl;
+    ll n;
+    cin>>n;
+    string s;
+    cin>>s;
+    ll c=0;
+    for(int i=1;i<s.size();i+=2)
+    {
+        if(s[i]==s[i-1])
+        {
+            c++;
+            if(s[i]=='a')s[i]='b';
+            else if(s[i]=='b')s[i]='a';
+        }
+    }
+    cout<<c<<endl<<s;
 }
 int main()
 {
@@ -16,8 +26,8 @@ int main()
     ll t;
     //    freopen("input.in","rt",stdin);
     //    freopen("output.txt","wt",stdout);
-    cin>>t;
-//    t=1;
+//    cin>>t;
+    t=1;
     while(t--)
     {
         test_case();

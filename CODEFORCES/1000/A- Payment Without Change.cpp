@@ -4,11 +4,17 @@
 using namespace std;
 void test_case()
 {
-    ll n,m,x;
-    cin>>n>>m>>x;
-    ll r=((x-1)%n)+1;
-    ll c=ceil((double)x/(double)n);
-    cout<<(r-1)*m+c<<endl;
+    ll a,b,n,s;
+    cin>>a>>b>>n>>s;
+    ll ans1=s/n;
+    ll ans2=s%n;
+    if(ans1<=a)
+    {
+        if(s-ans1*n<=b)cout<<"YES"<<endl;
+        else cout<<"NO"<<endl;
+    }
+    else if(s-b<=a*n)cout<<"YES"<<endl;
+    else cout<<"NO"<<endl;
 }
 int main()
 {

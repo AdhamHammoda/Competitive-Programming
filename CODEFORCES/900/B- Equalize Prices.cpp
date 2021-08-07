@@ -2,20 +2,24 @@
 #define FIO ios_base::sync_with_stdio(false);
 #define ll long long int
 using namespace std;
+ll n,k;
+ll arr[200];
 void test_case()
 {
-    ll n,m,x;
-    cin>>n>>m>>x;
-    ll r=((x-1)%n)+1;
-    ll c=ceil((double)x/(double)n);
-    cout<<(r-1)*m+c<<endl;
+    cin>>n>>k;
+    ll sum=0,mn=1e9,mx=0;
+    for(int i=0;i<n;i++)
+    {
+        cin>>arr[i];
+        mx=max(mx,arr[i]);
+        mn=min(mn,arr[i]);
+    }
+    (mx-mn>2*k)?cout<<-1<<endl:cout<<mn+k<<endl;
 }
 int main()
 {
     FIO
     ll t;
-    //    freopen("input.in","rt",stdin);
-    //    freopen("output.txt","wt",stdout);
     cin>>t;
 //    t=1;
     while(t--)

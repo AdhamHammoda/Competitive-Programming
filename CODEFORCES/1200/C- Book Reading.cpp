@@ -4,11 +4,19 @@
 using namespace std;
 void test_case()
 {
-    ll n,m,x;
-    cin>>n>>m>>x;
-    ll r=((x-1)%n)+1;
-    ll c=ceil((double)x/(double)n);
-    cout<<(r-1)*m+c<<endl;
+    ll n,m;
+    cin>>n>>m;
+    ll dig=m%10;
+    vector<ll> sum(11);
+    for(ll i=1;i<=10;i++)
+    {
+        if(i)sum[i]=sum[i-1]+(i*dig)%10;
+        else sum[i]=(dig*i)%10;
+    }
+    ll ans=(n/m/10)*sum[10];
+    ll mod=(n/m)%10;
+    if(mod)ans+=sum[mod];
+    cout<<ans<<endl;
 }
 int main()
 {

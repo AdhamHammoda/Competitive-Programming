@@ -4,11 +4,19 @@
 using namespace std;
 void test_case()
 {
-    ll n,m,x;
-    cin>>n>>m>>x;
-    ll r=((x-1)%n)+1;
-    ll c=ceil((double)x/(double)n);
-    cout<<(r-1)*m+c<<endl;
+    ll a,b,c,n;
+    cin>>a>>b>>c>>n;
+    ll sum=a+b+c+n;
+    if(sum%3)
+    {
+        cout<<"NO"<<endl;
+    }
+    else
+    {
+        ll ans=sum/3;
+        if(abs(ans-a)+abs(ans-b)+abs(ans-c)!=n)cout<<"NO"<<endl;
+        else cout<<"YES"<<endl;
+    }
 }
 int main()
 {
