@@ -5,9 +5,6 @@ using namespace std;
 const ll N = 2e5+5;
 ll par[N],sz[N],n,m,rating[N];
 multiset<pair<ll,pair<ll,ll>>> edges;
-multiset<pair<ll,pair<ll,ll>>> edges2;
-multiset<ll> allcost;
-set<ll> tam[N];
 ll findParent(ll u)
 {
     if(par[u]==u)return u;
@@ -24,7 +21,6 @@ void join(ll a,ll b)
 }
 ll kruskal()
 {
-    for(int i=1;i<=n;i++)par[i]=1;
     ll ret=0;
     for(auto x:edges)
     {
@@ -32,10 +28,6 @@ ll kruskal()
         {
             join(x.second.second,x.second.first);
             ret+=x.first;
-            allcost.insert(x.first);
-            tam[x.second.first].insert(x.first);
-            tam[x.second.second].insert(x.first);
-            edges2.erase({x.first,{x.second.first,x.second.second}});
         }
     }
     return ret;
@@ -43,24 +35,33 @@ ll kruskal()
 void test_case()
 {
     cin>>n>>m;
+    ll minnode=0;
+    ll minrating=1e18;
+    for(int i=1;i<=n;i++)
+    {
+        sz[i]=1;
+        par[i]=i;
+        cin>>rating[i];
+        if(rating[i]<minrating)
+        {
+            minrating=rating[i];
+            minnode=i;
+        }
+    }
     for(int i=1;i<=m;i++)
     {
         ll x,y,w;
         cin>>x>>y>>w;
         edges.insert({w,{x,y}});
-        edges2.insert({w,{x,y}});
     }
-    kruskal();
-    ll c=0;
-    for(auto x:edges2)
+    for(int i=1;i<=n;i++)
     {
-        if(allcost.find(x.first)!=allcost.end())
+        if(i!=minnode)
         {
-            if(tam[x.second.first].find(x.first)!=tam[x.second.first].end()
-            || tam[x.second.second].find(x.first)!=tam[x.second.second].end())c++;
+            edges.insert({rating[i]+minrating,{minnode,i}});
         }
     }
-    cout<<c;
+    cout<<kruskal();
 }
 int main()
 {
