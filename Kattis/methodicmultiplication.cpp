@@ -4,25 +4,19 @@
 using namespace std;
 void test_case()
 {
-    ll n,m;
-    cin>>n>>m;
     string a,b;
     cin>>a>>b;
-    sum[0]=(b[0]=='1');
-    for(int i=1;i<m;i++)
+    ll a1=count(a.begin(),a.end(),'S');
+    ll b1=count(b.begin(),b.end(),'S');
+    for(int i=0;i<a1*b1;i++)
     {
-        sum[i]+=sum[i-1]+(b[i]=='1');
+        cout<<"S(";
     }
-    ll j=max(0LL,m-n),ans=0;
-    for(int i=max(0LL,n-m);i<n;i++)
+    cout<<0;
+    for(int i=0;i<a1*b1;i++)
     {
-        if(a[i]=='1')
-        {
-            ans=(ans%mod + (sum[j]%mod * binpow(2,n-i-1)%mod)%mod)%mod;
-        }
-        j++;
+        cout<<")";
     }
-    cout<<ans;
 }
 int main()
 {

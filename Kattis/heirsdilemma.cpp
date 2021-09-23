@@ -4,32 +4,32 @@
 using namespace std;
 void test_case()
 {
-    ll n,m;
-    cin>>n>>m;
-    string a,b;
+    ll a,b;
     cin>>a>>b;
-    sum[0]=(b[0]=='1');
-    for(int i=1;i<m;i++)
+    ll sum=0;
+    for(ll i=a;i<=b;i++)
     {
-        sum[i]+=sum[i-1]+(b[i]=='1');
-    }
-    ll j=max(0LL,m-n),ans=0;
-    for(int i=max(0LL,n-m);i<n;i++)
-    {
-        if(a[i]=='1')
+        set<ll> s;
+        ll m=i;
+        while(m>0)
         {
-            ans=(ans%mod + (sum[j]%mod * binpow(2,n-i-1)%mod)%mod)%mod;
+            if(m%10)
+            {
+                if(i%(m%10)==0)s.insert(m%10);
+                else break;
+            }
+            m/=10;
         }
-        j++;
+        sum+=(s.size()==6);
     }
-    cout<<ans;
+    cout<<sum;
 }
 int main()
 {
-    FIO
+//    FIO
+    ll t;
 //  freopen("input.in","rt",stdin);
 //  freopen("output.txt","wt",stdout);
-    ll t;
 //    cin>>t;
     t=1;
     while(t--)

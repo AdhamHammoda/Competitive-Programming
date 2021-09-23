@@ -2,36 +2,38 @@
 #define FIO ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 #define ll long long int
 using namespace std;
+ll j=0;
 void test_case()
 {
+    j++;
     ll n,m;
     cin>>n>>m;
-    string a,b;
-    cin>>a>>b;
-    sum[0]=(b[0]=='1');
-    for(int i=1;i<m;i++)
+    char grid[n][m];
+    for(int i=0;i<n;i++)
     {
-        sum[i]+=sum[i-1]+(b[i]=='1');
-    }
-    ll j=max(0LL,m-n),ans=0;
-    for(int i=max(0LL,n-m);i<n;i++)
-    {
-        if(a[i]=='1')
+        for(int j=0;j<m;j++)
         {
-            ans=(ans%mod + (sum[j]%mod * binpow(2,n-i-1)%mod)%mod)%mod;
+            cin>>grid[i][j];
         }
-        j++;
     }
-    cout<<ans;
+    cout<<"Test "<<j<<endl;
+    for(int i=n-1;i>=0;i--)
+    {
+        for(int j=m-1;j>=0;j--)
+        {
+            cout<<grid[i][j];
+        }
+        cout<<endl;
+    }
 }
 int main()
 {
-    FIO
+//    FIO
+    ll t;
 //  freopen("input.in","rt",stdin);
 //  freopen("output.txt","wt",stdout);
-    ll t;
-//    cin>>t;
-    t=1;
+    cin>>t;
+//    t=1;
     while(t--)
     {
         test_case();

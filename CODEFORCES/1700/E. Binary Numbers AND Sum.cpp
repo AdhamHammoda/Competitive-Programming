@@ -2,6 +2,15 @@
 #define FIO ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 #define ll long long int
 using namespace std;
+ll sum[200005];
+ll mod=998244353;
+ll binpow(ll a,ll b)
+{
+    if(!b)return 1;
+    ll ans=binpow(a,b/2);
+    if(b%2)return ((ans%mod * ans%mod)%mod * a%mod)%mod;
+    else return (ans%mod * ans%mod)%mod;
+}
 void test_case()
 {
     ll n,m;

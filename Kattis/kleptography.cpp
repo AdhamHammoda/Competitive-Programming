@@ -6,30 +6,21 @@ void test_case()
 {
     ll n,m;
     cin>>n>>m;
-    string a,b;
-    cin>>a>>b;
-    sum[0]=(b[0]=='1');
-    for(int i=1;i<m;i++)
+    string s1,s2;
+    cin>>s1>>s2;
+    s1=string(m-n,' ')+s1;
+    for(int i=m-1;i>n-1;i--)
     {
-        sum[i]+=sum[i-1]+(b[i]=='1');
+        s1[i-n]='a'+(26+(s2[i]-'a')-(s1[i]-'a'))%26;
     }
-    ll j=max(0LL,m-n),ans=0;
-    for(int i=max(0LL,n-m);i<n;i++)
-    {
-        if(a[i]=='1')
-        {
-            ans=(ans%mod + (sum[j]%mod * binpow(2,n-i-1)%mod)%mod)%mod;
-        }
-        j++;
-    }
-    cout<<ans;
+    cout<<s1;
 }
 int main()
 {
     FIO
+    ll t;
 //  freopen("input.in","rt",stdin);
 //  freopen("output.txt","wt",stdout);
-    ll t;
 //    cin>>t;
     t=1;
     while(t--)
