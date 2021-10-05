@@ -4,31 +4,31 @@
 using namespace std;
 void test_case()
 {
-    ll n,m;
-    cin>>n>>m;
-    string a,b;
+    ll n;
+    cin>>n;
+    double a,b;
     cin>>a>>b;
-    sum[0]=(b[0]=='1');
-    for(int i=1;i<m;i++)
+    set<pair<double,double>>s;
+    bool v=false;
+    for(int i=0;i<n;i++)
     {
-        sum[i]+=sum[i-1]+(b[i]=='1');
-    }
-    ll j=max(0LL,m-n),ans=0;
-    for(int i=max(0LL,n-m);i<n;i++)
-    {
-        if(a[i]=='1')
+        double x,y;
+        cin>>x>>y;
+        if(x==a)v=true;
+        else
         {
-            ans=(ans%mod + (sum[j]%mod * binpow(2,n-i-1)%mod)%mod)%mod;
+            double sl=(y-b)/(x-a);
+            double inc=y-(sl*x);
+            s.insert({sl,inc});
         }
-        j++;
     }
-    cout<<ans;
+    cout<<s.size()+v;
 }
 int main()
 {
     FIO
-//  freopen("input.in","rt",stdin);
-//  freopen("output.txt","wt",stdout);
+//    freopen("input.txt","rt",stdin);
+//    freopen("output.txt","wt",stdout);
     ll t;
 //    cin>>t;
     t=1;
