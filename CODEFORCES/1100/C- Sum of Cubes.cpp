@@ -2,7 +2,7 @@
 #define FIO ios_base::sync_with_stdio(false);
 #define ll long long int
 using namespace std;
-set<ll> s;
+set<ll> st;
 ll binpow(ll a,ll b)
 {
     if(!b)return 1;
@@ -14,14 +14,14 @@ void test_case()
 {
     ll n;
     cin>>n;
-    for(auto x:s)
+    for(auto x:st)
     {
         if(x>n)
         {
             cout<<"NO"<<endl;
             return;
         }
-        if(s.find(n-x)!=s.end())
+        if(st.find(n-x)!=st.end())
         {
             cout<<"YES"<<endl;
             return;
@@ -36,7 +36,7 @@ int main()
     cin>>t;
     for(int i=1;i<10004;i++)
     {
-        s.insert(binpow(i,3));
+        st.insert(binpow(i,3));
     }
     while(t--)
     {
