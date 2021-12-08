@@ -4,25 +4,18 @@ using namespace std;
 typedef long long ll;
 void test_case()
 {
-    ll n,k;
-    cin>>n>>k;
-    map<char,bool>m;
-    string s;
-    cin>>s;
-    for(int i=0;i<k;i++)
-    {
-        char a;
-        cin>>a;
-        m[a]=1;
-    }
-    ll ans=0,c=0;
+    ll n;
+    cin>>n;
+    ll arr[n],pos[n+1];
+    pos[n]=n+1;
+    for(int i=0;i<n;i++)cin>>arr[i],pos[i]=n+1;
+    ll ans=0;
     for(int i=0;i<n;i++)
     {
-        if(!m[s[i]])ans+=c*(c+1)/2,c=0;
-        else c++;
+        pos[arr[i]]=min(pos[arr[i]],(ll)i);
+        if(pos[arr[i]]!=i)ans+=(i-pos[arr[i]]>1);
     }
-    ans+=c*(c+1)/2;
-    cout<<ans;
+    cout<<(ans?"YES":"NO")<<endl;
 }
 int main()
 {
@@ -31,7 +24,7 @@ int main()
 //    freopen("output.txt","wt",stdout);
     ll t;
     t=1;
-//    cin>>t;
+    cin>>t;
     while(t--)
     {
         test_case();

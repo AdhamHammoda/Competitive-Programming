@@ -4,25 +4,21 @@ using namespace std;
 typedef long long ll;
 void test_case()
 {
-    ll n,k;
-    cin>>n>>k;
-    map<char,bool>m;
-    string s;
-    cin>>s;
-    for(int i=0;i<k;i++)
-    {
-        char a;
-        cin>>a;
-        m[a]=1;
-    }
-    ll ans=0,c=0;
+    ll n;
+    cin>>n;
+    ll a[n],b[n],c[n];
+    for(int i=0;i<n;i++)cin>>a[i];
+    for(int i=0;i<n;i++)cin>>b[i];
+    for(int i=0;i<n;i++)c[i]=b[i]-a[i];
+    sort(c,c+n);
+    ll ans=0;
     for(int i=0;i<n;i++)
     {
-        if(!m[s[i]])ans+=c*(c+1)/2,c=0;
-        else c++;
+        ll it=lower_bound(c,c+n,a[i]-b[i])-c;
+        it-=(a[i]-b[i]>0);
+        ans+=it;
     }
-    ans+=c*(c+1)/2;
-    cout<<ans;
+    cout<<ans/2;
 }
 int main()
 {

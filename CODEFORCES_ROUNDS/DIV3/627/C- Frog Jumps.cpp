@@ -4,25 +4,16 @@ using namespace std;
 typedef long long ll;
 void test_case()
 {
-    ll n,k;
-    cin>>n>>k;
-    map<char,bool>m;
     string s;
     cin>>s;
-    for(int i=0;i<k;i++)
+    string r=" ";
+    r+=s;
+    ll ans=0,lst=0;
+    for(int i=1;i<r.size();i++)
     {
-        char a;
-        cin>>a;
-        m[a]=1;
+        if(r[i]=='R')ans=max(ans,i-lst),lst=i;
     }
-    ll ans=0,c=0;
-    for(int i=0;i<n;i++)
-    {
-        if(!m[s[i]])ans+=c*(c+1)/2,c=0;
-        else c++;
-    }
-    ans+=c*(c+1)/2;
-    cout<<ans;
+    cout<<max(ans,(ll)r.size()-lst)<<endl;
 }
 int main()
 {
@@ -31,7 +22,7 @@ int main()
 //    freopen("output.txt","wt",stdout);
     ll t;
     t=1;
-//    cin>>t;
+    cin>>t;
     while(t--)
     {
         test_case();

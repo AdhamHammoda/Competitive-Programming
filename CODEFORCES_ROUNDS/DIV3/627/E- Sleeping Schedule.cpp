@@ -2,28 +2,26 @@
 #define FIO ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 using namespace std;
 typedef long long ll;
-const ll N=2e5+5;
-ll dp[N][2][2],arr[N];
-ll n;
-ll solve(ll idx,bool rmv,bool prv)
+const ll N=2005;
+ll dp[N][N],arr[N];
+ll n,h,l,r;
+ll between(ll x){return x>=l && x<=r;}
+ll solve(ll idx,ll hour)
 {
     if(idx==n)return 0;
-    ll &ans=dp[idx][rmv][prv];
+    ll &ans=dp[idx][hour];
     if(~ans)return ans;
     ll op1=0,op2=0;
-    ll lst=arr[idx-1-(prv && rmv)];
-    if(arr[idx]>lst)op1=solve(idx+1,rmv,0)+1;
-    if(!rmv)op2=solve(idx+1,1,1);
+    op1=solve(idx+1,(hour+arr[idx]+h)%h)+between((hour+arr[idx]+h)%h);
+    op2=solve(idx+1,(hour+arr[idx]-1+h)%h)+between((hour+arr[idx]-1+h)%h);
     return ans=max(op1,op2);
 }
 void test_case()
 {
     memset(dp,-1,sizeof dp);
-    cin>>n;
+    cin>>n>>h>>l>>r;
     for(int i=0;i<n;i++)cin>>arr[i];
-    ll ans=0;
-    for(int i=0;i<n;i++)ans=max(ans,solve(i+1,0,0));
-    cout<<ans+1;
+    cout<<solve(0,0);
 }
 int main()
 {

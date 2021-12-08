@@ -6,23 +6,15 @@ void test_case()
 {
     ll n;
     cin>>n;
-    map<ll,ll>pos;
-    ll mxr=0,mnl=0;
-    while(n--)
+    char arr[n];
+    for(int i=0;i<n;i++)cin>>arr[i];
+    ll c=0;
+    for(int i=0;i<n;i++)
     {
-        char a;
-        ll b;
-        cin>>a>>b;
-        if(a=='L')mnl--,pos[b]=mnl;
-        else if(a=='R')mxr++,pos[b]=mxr;
-        else
-        {
-            ll posleft=0,posright=0;
-            if(pos[b]<0)posleft=pos[b]-mnl,posright=mxr+abs(pos[b])-1;
-            else posleft=abs(mnl)+pos[b]-1,posright=mxr-pos[b];
-            cout<<min(posright,posleft)<<endl;
-        }
+        c+=(arr[i]!='3' && arr[i]!='6' && arr[i]!='9');
+        c+=((arr[i]-'0')%2 && i==n-1);
     }
+    c?cout<<"NO":cout<<"YES";
 }
 int main()
 {
