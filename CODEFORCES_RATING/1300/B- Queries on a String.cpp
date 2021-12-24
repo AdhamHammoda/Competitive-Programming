@@ -4,16 +4,19 @@ using namespace std;
 typedef long long ll;
 void test_case()
 {
-    ll n,m;
-    cin>>n>>m;
-    ll arr[m];
-    map<ll,ll>ans;
-    for(int i=0;i<m;i++)
+    string s;
+    cin>>s;
+    ll q;
+    cin>>q;
+    while(q--)
     {
-        cin>>arr[i];
-        for(int j=arr[i];j<=n;j++)if(!ans[j])ans[j]=arr[i];
+        ll a,b,k;
+        cin>>a>>b>>k;
+        k%=(b-a+1);
+        a--,b--;
+        rotate(s.begin()+a,s.begin()+(b+1-k),s.begin()+b+1);
     }
-    for(int i=1;i<=n;i++)cout<<ans[i]<<" ";
+    cout<<s<<endl;
 }
 int main()
 {

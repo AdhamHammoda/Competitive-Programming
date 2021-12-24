@@ -4,16 +4,16 @@ using namespace std;
 typedef long long ll;
 void test_case()
 {
-    ll n,m;
-    cin>>n>>m;
-    ll arr[m];
-    map<ll,ll>ans;
-    for(int i=0;i<m;i++)
-    {
-        cin>>arr[i];
-        for(int j=arr[i];j<=n;j++)if(!ans[j])ans[j]=arr[i];
-    }
-    for(int i=1;i<=n;i++)cout<<ans[i]<<" ";
+    ll l,r,x,y,k;
+    cin>>l>>r>>x>>y>>k;
+    ll mnexp=x,mxexp=y;
+    if(k*x<l)mnexp=l;
+    else mnexp*=k;
+    if(r<k*y)mxexp=r;
+    else mxexp*=k;
+    ll mncost=mnexp/k,mxcost=mxexp/k;
+    if(mncost<mxcost ||(mncost==mxcost && (mnexp%k==0)))cout<<"YES";
+    else cout<<"NO";
 }
 int main()
 {

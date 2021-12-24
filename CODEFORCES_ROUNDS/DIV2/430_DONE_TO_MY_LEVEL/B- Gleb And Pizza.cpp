@@ -2,18 +2,22 @@
 #define FIO ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 using namespace std;
 typedef long long ll;
+const ll mod=1e9+7;
 void test_case()
 {
-    ll n,m;
-    cin>>n>>m;
-    ll arr[m];
-    map<ll,ll>ans;
-    for(int i=0;i<m;i++)
-    {
-        cin>>arr[i];
-        for(int j=arr[i];j<=n;j++)if(!ans[j])ans[j]=arr[i];
-    }
-    for(int i=1;i<=n;i++)cout<<ans[i]<<" ";
+   double r,d;
+   cin>>r>>d;
+   ll n;
+   cin>>n;
+   ll c=0;
+   while(n--)
+   {
+       double x1,y1,r1;
+       cin>>x1>>y1>>r1;
+       double dist=sqrt(x1*x1+y1*y1);
+       if(dist<=r && dist>=r-d && dist+r1<=r && dist-r1>=r-d)c++;
+   }
+   cout<<c;
 }
 int main()
 {

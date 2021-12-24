@@ -4,21 +4,17 @@ using namespace std;
 typedef long long ll;
 void test_case()
 {
-    ll n,m,k;
-    cin>>n>>m>>k;
-    ll arr[m];
-    for(int i=0;i<m;i++)
+    ll ans=1e18;
+    for(ll i=0;i<5;i++)
     {
-        cin>>arr[i];
+        for(ll j=0;j<5;j++)
+        {
+            ll x;
+            cin>>x;
+            if(x==1)ans=min(ans,abs(i-2)+abs(j-2));
+        }
     }
-    ll fedor;
-    cin>>fedor;
-    ll c=0;
-    for(int i=0;i<m;i++)
-    {
-        c+=(__builtin_popcount(fedor^arr[i])<=k);
-    }
-    cout<<c;
+    cout<<ans;
 }
 int main()
 {

@@ -4,11 +4,10 @@ using namespace std;
 typedef long long ll;
 const ll N=2e5+5;
 vector<ll> adj[N];
-ll par[N];
-ll n,m,k;
 vector<ll> ans;
 ll ind[N];
 bool vis[N];
+ll n,m,k;
 void dfs(ll u)
 {
     vis[u]=1;
