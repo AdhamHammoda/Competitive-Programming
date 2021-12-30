@@ -4,9 +4,13 @@ using namespace std;
 typedef long long ll;
 void test_case()
 {
-    ll n;
-    cin>>n;
-    cout<<(n%2==0 && n>2?"YES":"NO");
+    ll x,y,z;
+    cin>>x>>y>>z;
+    ll x1,y1,z1;
+    cin>>x1>>y1>>z1;
+    ll a1,a2,a3,a4,a5,a6;
+    cin>>a1>>a2>>a3>>a4>>a5>>a6;
+    cout<<a1*(y<0)+a2*(y>y1)+a3*(z<0)+a4*(z>z1)+a5*(x<0)+a6*(x>x1);
 }
 int main()
 {

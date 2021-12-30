@@ -2,11 +2,20 @@
 #define FIO ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
 using namespace std;
 typedef long long ll;
+ll n;
+ll c=0;
+void rec(ll num)
+{
+    if(num>n)return;
+    c++;
+    rec(num*10);
+    rec(num*10+1);
+}
 void test_case()
 {
-    ll n;
     cin>>n;
-    cout<<(n%2==0 && n>2?"YES":"NO");
+    rec(1);
+    cout<<c;
 }
 int main()
 {
