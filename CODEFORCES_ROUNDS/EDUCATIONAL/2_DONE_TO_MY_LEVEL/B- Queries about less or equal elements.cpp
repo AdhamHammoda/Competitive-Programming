@@ -4,18 +4,18 @@ using namespace std;
 typedef long long ll;
 void test_case()
 {
-    ll n;
-    cin>>n;
-    set<ll> s;
-    for(int i=0;i<n;i++)
+    ll n,m;
+    cin>>n>>m;
+    ll a[n];
+    for(int i=0;i<n;i++)cin>>a[i];
+    sort(a,a+n);
+    for(int i=0;i<m;i++)
     {
         ll x;
         cin>>x;
-        s.insert(x);
+        ll it=upper_bound(a,a+n,x)-a;
+        cout<<it<<" ";
     }
-    s.erase(*s.begin());
-    if(!s.size())cout<<"NO";
-    else cout<<*(s.begin());
 }
 int main()
 {
