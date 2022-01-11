@@ -3,7 +3,7 @@
 #define ll long long int
 using namespace std;
 vector<pair<ll,pair<ll,ll>>> arr;
-ll dp[105][30005];
+ll dp[105][60005];
 ll solve(ll idx,ll rem)
 {
     if(idx==arr.size() || rem<0)

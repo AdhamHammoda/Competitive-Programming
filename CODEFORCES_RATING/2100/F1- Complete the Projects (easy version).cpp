@@ -18,20 +18,12 @@ void test_case()
     sort(pos.begin(),pos.end());
     for(auto x:pos)
     {
-        if(r<x.first)
-        {
-            cout<<"NO";
-            return;
-        }
+        if(r<x.first)cout<<"NO",exit(0);
         r+=x.second;
     }
     for(auto x:neg)
     {
-        if(r<x.second.first)
-        {
-            cout<<"NO";
-            return;
-        }
+        if(r<x.second.first)cout<<"NO",exit(0);
         r+=x.second.second;
     }
     cout<<"YES";
