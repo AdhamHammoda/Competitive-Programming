@@ -1,57 +1,44 @@
-#include<bits/stdc++.h>
-#define FIO ios_base::sync_with_stdio(false);
-using namespace std;
+#include <bits/stdc++.h>
+#define FIO ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
 typedef long long ll;
-const ll N=2e5+7;
-vector<ll> adj[N];
-ll dp[N][4];
-void dfs(ll u,ll p)
-{
-    if(p!=1)dp[u][1]=1;
-    dp[u][3]=1e18;
-    bool have=false;
-    for(auto v:adj[u])
-    {
-        if(v!=p)
-        {
-            have=true;
-            dfs(v,u);
-            dp[u][1]+=min(dp[v][1],dp[v][2]);
-            dp[u][2]+=min(dp[v][1],dp[v][3]);
-        }
-    }
-    if(have)
-    {
-        for(auto v:adj[u])
-        {
-            dp[u][3]=min(dp[u][3],dp[u][2]-min(dp[v][1],dp[v][3])+dp[v][1]);
-        }
-    }
-}
+typedef long double ld;
+using namespace std;
 void test_case()
 {
     ll n;
     cin>>n;
-    for(int i=0;i<n-1;i++)
+    ll arr[n+1];
+    ll mn=1e18,mx=-1e18;
+    for(int i=1;i<=n;i++)cin>>arr[i],mn=min(mn,arr[i]),mx=max(mx,arr[i]);
+    ll x;
+    cin>>x;
+    vector<ll> v;
+    for(int i=1;i<=n;i++)if(arr[i]==x)v.push_back(i);
+    if(!v.size())
     {
-        ll u,v;
-        cin>>u>>v;
-        adj[u].push_back(v);
-        adj[v].push_back(u);
+        cout<<"No students are 10 years old."<<endl;
+        cout<<"Range: "<<mn<<" to "<<mx;
     }
-    ll ans=0;
-    for(auto v:adj[1])
+    else if(v.size()==1)
     {
-        dfs(v,1);
-        ans+=dp[v][1];
+        cout<<"Student "<<v[0]<<" is "<<x<<" years old."<<endl;
+        cout<<"Range: "<<mn<<" to "<<mx;
     }
-    cout<<ans;
+    else
+    {
+        cout<<"Students ";
+        for(int i=0;i<v.size();i++)
+        {
+            cout<<v[i];
+            if(i!=v.size()-1)cout<<", ";
+        }
+        cout<<" are "<<x<<" years old."<<endl;
+        cout<<"Range: "<<mn<<" to "<<mx;
+    }
 }
 int main()
 {
     FIO
-//    freopen("input.txt","rt",stdin);
-//    freopen("output.txt","wt",stdout);
     ll t;
 //    cin>>t;
     t=1;
