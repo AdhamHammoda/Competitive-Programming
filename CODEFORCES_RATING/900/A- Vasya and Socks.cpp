@@ -1,15 +1,21 @@
-#include <bits/stdc++.h>
-#define FIO ios_base::sync_with_stdio(false);
-#define ll long long int
+///       ______        __________                    _____   _____        _____
+///      ///  \\\      ||__||   \\\    |||     |||  ||     || |||\\\      ///|||
+///     ///    \\\     ||__||    \\\   |||_____|||  ||     || ||| \\\    /// |||
+///    ///______\\\    ||__||     \\\  |||_____|||  ||     || |||  \\\  ///  |||
+///   ///________\\\   ||__||     ///  |||_____|||  ||     || |||   \\\///   |||
+///  ///          \\\  ||__||    ///   |||     |||  ||     || |||            |||
+/// ///            \\\ ||__||___///    |||     |||  ||_____|| |||            |||
+
+#include<bits/stdc++.h>
+#define FIO ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
 using namespace std;
-/// Implementation
-/// 7-11-2021 , 3:38 am
+typedef long long ll;
+typedef long double ld;
 void test_case()
 {
    ll n,m;
    cin>>n>>m;
-
-   for(int i=1;i<=1000;i++)
+   for(int i=1;;i++)
    {
        n--;
        n+=(i%m==0);

@@ -1,9 +1,16 @@
+///       ______        __________                    _____   _____        _____
+///      ///  \\\      ||__||   \\\    |||     |||  ||     || |||\\\      ///|||
+///     ///    \\\     ||__||    \\\   |||_____|||  ||     || ||| \\\    /// |||
+///    ///______\\\    ||__||     \\\  |||_____|||  ||     || |||  \\\  ///  |||
+///   ///________\\\   ||__||     ///  |||_____|||  ||     || |||   \\\///   |||
+///  ///          \\\  ||__||    ///   |||     |||  ||     || |||            |||
+/// ///            \\\ ||__||___///    |||     |||  ||_____|| |||            |||
+
 #include<bits/stdc++.h>
-#define ll long long
-#define FIO ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+#define FIO ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
 using namespace std;
-/// Number Theory
-set<ll>s;
+typedef long long ll;
+typedef long double ld;
 void test_case()
 {
     ll n;
@@ -13,10 +20,7 @@ void test_case()
     for(int i=0;i<n;i++)
     {
         cin>>arr[i];
-        if(i)
-        {
-            mod+=abs(arr[i]-arr[i-1])%2;
-        }
+        if(i)mod+=abs(arr[i]-arr[i-1])%2;
     }
     mod?cout<<"NO"<<endl:cout<<"YES"<<endl;
 }
@@ -25,10 +29,6 @@ int main()
     FIO
     ll t;
     cin>>t;
-    for(int i=1;i<=10000;i++)
-    {
-        s.insert(i*i);
-    }
 //    t=1;
     while(t--)
     {

@@ -1,14 +1,20 @@
-#include <bits/stdc++.h>
-#define FIO ios_base::sync_with_stdio(false);
-#define ll long long int
+///       ______        __________                    _____   _____        _____
+///      ///  \\\      ||__||   \\\    |||     |||  ||     || |||\\\      ///|||
+///     ///    \\\     ||__||    \\\   |||_____|||  ||     || ||| \\\    /// |||
+///    ///______\\\    ||__||     \\\  |||_____|||  ||     || |||  \\\  ///  |||
+///   ///________\\\   ||__||     ///  |||_____|||  ||     || |||   \\\///   |||
+///  ///          \\\  ||__||    ///   |||     |||  ||     || |||            |||
+/// ///            \\\ ||__||___///    |||     |||  ||_____|| |||            |||
+
+#include<bits/stdc++.h>
+#define FIO ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
 using namespace std;
-/// Implementation
-/// 7-12-2021 , 4:55 pm
+typedef long long ll;
+typedef long double ld;
 void test_case()
 {
     ll k;
     cin>>k;
-    ll arr[12];
     priority_queue<ll>pq;
     for(int i=0;i<12;i++)
     {
@@ -18,10 +24,7 @@ void test_case()
     }
     while(!pq.empty())
     {
-        if(k<=0)
-        {
-            break;
-        }
+        if(k<=0)break;
         ll b=pq.top();
         k-=b;
         pq.pop();

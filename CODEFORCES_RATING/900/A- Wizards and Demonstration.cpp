@@ -1,13 +1,22 @@
+///       ______        __________                    _____   _____        _____
+///      ///  \\\      ||__||   \\\    |||     |||  ||     || |||\\\      ///|||
+///     ///    \\\     ||__||    \\\   |||_____|||  ||     || ||| \\\    /// |||
+///    ///______\\\    ||__||     \\\  |||_____|||  ||     || |||  \\\  ///  |||
+///   ///________\\\   ||__||     ///  |||_____|||  ||     || |||   \\\///   |||
+///  ///          \\\  ||__||    ///   |||     |||  ||     || |||            |||
+/// ///            \\\ ||__||___///    |||     |||  ||_____|| |||            |||
+
 #include<bits/stdc++.h>
 #define FIO ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
 using namespace std;
 typedef long long ll;
+typedef long double ld;
 void test_case()
 {
     long double n,x,y;
     cin>>n>>x>>y;
     long double ans=0.0;
-    ans=max((long double)0.0,(y*n/100.0  - x));
+    ans=max((long double)0.0,(y*n/100.0-x));
     ans=ceil(ans);
     cout<<ans;
 }

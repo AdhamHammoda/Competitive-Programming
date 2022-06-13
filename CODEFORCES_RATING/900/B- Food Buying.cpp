@@ -1,7 +1,16 @@
-#include <bits/stdc++.h>
-#define FIO ios_base::sync_with_stdio(false);
-#define ll long long int
+///       ______        __________                    _____   _____        _____
+///      ///  \\\      ||__||   \\\    |||     |||  ||     || |||\\\      ///|||
+///     ///    \\\     ||__||    \\\   |||_____|||  ||     || ||| \\\    /// |||
+///    ///______\\\    ||__||     \\\  |||_____|||  ||     || |||  \\\  ///  |||
+///   ///________\\\   ||__||     ///  |||_____|||  ||     || |||   \\\///   |||
+///  ///          \\\  ||__||    ///   |||     |||  ||     || |||            |||
+/// ///            \\\ ||__||___///    |||     |||  ||_____|| |||            |||
+
+#include<bits/stdc++.h>
+#define FIO ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
 using namespace std;
+typedef long long ll;
+typedef long double ld;
 void test_case()
 {
     ll n;
@@ -13,8 +22,7 @@ void test_case()
         sum+=10*ans;
         n=mod+(n/10);
     }
-    if(!sum)cout<<n<<endl;
-    else cout<<sum+n<<endl;
+    cout<<sum+n<<endl;
 }
 int main()
 {

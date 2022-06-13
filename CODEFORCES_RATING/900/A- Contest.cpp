@@ -1,9 +1,16 @@
-#include <bits/stdc++.h>
-#define FIO ios_base::sync_with_stdio(false);
-#define ll long long int
+///       ______        __________                    _____   _____        _____
+///      ///  \\\      ||__||   \\\    |||     |||  ||     || |||\\\      ///|||
+///     ///    \\\     ||__||    \\\   |||_____|||  ||     || ||| \\\    /// |||
+///    ///______\\\    ||__||     \\\  |||_____|||  ||     || |||  \\\  ///  |||
+///   ///________\\\   ||__||     ///  |||_____|||  ||     || |||   \\\///   |||
+///  ///          \\\  ||__||    ///   |||     |||  ||     || |||            |||
+/// ///            \\\ ||__||___///    |||     |||  ||_____|| |||            |||
+
+#include<bits/stdc++.h>
+#define FIO ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
 using namespace std;
-/// Implementation
-/// 7-12-2021 , 10:40 pm
+typedef long long ll;
+typedef long double ld;
 double func(double p,double t)
 {
     return max({3.0*p/10.0 , p - t*p/250.0});

@@ -1,10 +1,16 @@
+///       ______        __________                    _____   _____        _____
+///      ///  \\\      ||__||   \\\    |||     |||  ||     || |||\\\      ///|||
+///     ///    \\\     ||__||    \\\   |||_____|||  ||     || ||| \\\    /// |||
+///    ///______\\\    ||__||     \\\  |||_____|||  ||     || |||  \\\  ///  |||
+///   ///________\\\   ||__||     ///  |||_____|||  ||     || |||   \\\///   |||
+///  ///          \\\  ||__||    ///   |||     |||  ||     || |||            |||
+/// ///            \\\ ||__||___///    |||     |||  ||_____|| |||            |||
+
 #include<bits/stdc++.h>
-#define ll long long
-#define FIO ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+#define FIO ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
 using namespace std;
-/// Number Theory
-/// 7-28-2021 , 3:48 pm
-set<ll>s;
+typedef long long ll;
+typedef long double ld;
 void test_case()
 {
     ll n;
@@ -17,10 +23,6 @@ int main()
     FIO
     ll t;
     cin>>t;
-    for(int i=1;i<=10000;i++)
-    {
-        s.insert(i*i);
-    }
 //    t=1;
     while(t--)
     {

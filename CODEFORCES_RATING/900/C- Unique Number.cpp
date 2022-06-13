@@ -1,7 +1,16 @@
-#include <bits/stdc++.h>
-#define FIO ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
-#define ll long long int
+///       ______        __________                    _____   _____        _____
+///      ///  \\\      ||__||   \\\    |||     |||  ||     || |||\\\      ///|||
+///     ///    \\\     ||__||    \\\   |||_____|||  ||     || ||| \\\    /// |||
+///    ///______\\\    ||__||     \\\  |||_____|||  ||     || |||  \\\  ///  |||
+///   ///________\\\   ||__||     ///  |||_____|||  ||     || |||   \\\///   |||
+///  ///          \\\  ||__||    ///   |||     |||  ||     || |||            |||
+/// ///            \\\ ||__||___///    |||     |||  ||_____|| |||            |||
+
+#include<bits/stdc++.h>
+#define FIO ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
 using namespace std;
+typedef long long ll;
+typedef long double ld;
 vector<ll> v={1,2,3,4,5,6,7,8,9};
 set<ll> sums[52];
 void rec(ll idx,ll sum,ll num)
@@ -24,9 +33,9 @@ void test_case()
 int main()
 {
     FIO
+//    freopen("input.in","rt",stdin);
+//    freopen("output.txt","wt",stdout);
     ll t;
-    //    freopen("input.in","rt",stdin);
-    //    freopen("output.txt","wt",stdout);
     cin>>t;
 //    t=1;
     rec(0,0,0);
