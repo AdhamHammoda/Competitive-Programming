@@ -11,35 +11,21 @@
 using namespace std;
 typedef long long ll;
 typedef long double ld;
-ll a,b;
-ll ok(ll mid)
-{
-    ll ans=max(0LL,mid-b);
-    ll aa=a;
-    while(aa)
-    {
-        ans++;
-        aa/=mid;
-    }
-    return ans;
-}
 void test_case()
 {
-    cin>>a>>b;
-    ll low=2,high=2e9;
-    ll ans=4e18;
-    while(low+10<=high)
+    ll n,q;
+    cin>>n>>q;
+    ll sum[n+1];
+    sum[0]=0;
+    for(int i=1;i<=n;i++)cin>>sum[i];
+    sort(sum+1,sum+n+1);
+    for(int i=1;i<=n;i++)sum[i]+=sum[i-1];
+    while(q--)
     {
-        ll m1=low+(high-low)/3;
-        ll m2=high-(high-low)/3;
-        ll f1=ok(m1);
-        ll f2=ok(m2);
-        ans=min({ans,f1,f2});
-        if(f1>=f2)low=m1+1;
-        else high=m2-1;
+        ll x,y;
+        cin>>x>>y;
+        cout<<sum[n-x+y]-sum[n-x]<<endl;
     }
-    for(;low<=high;low++)ans=min(ans,ok(low));
-    cout<<ans<<endl;
 }
 int main()
 {
@@ -48,7 +34,7 @@ int main()
 //  freopen("output.txt","wt",stdout);
     ll t;
     t=1;
-    cin>>t;
+//    cin>>t;
     while(t--)
     {
         test_case();
