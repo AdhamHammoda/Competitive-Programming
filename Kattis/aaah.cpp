@@ -10,7 +10,7 @@ void test_case()
 }
 int main()
 {
-//    FIO
+    FIO
     ll t;
 //  freopen("input.in","rt",stdin);
 //  freopen("output.txt","wt",stdout);
